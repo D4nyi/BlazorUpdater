@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+
+		<AnalysisMode>All</AnalysisMode>
+		<AnalysisLevel>latest-all</AnalysisLevel>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+
+		<RootNamespace>BlazorUpdater</RootNamespace>
+		<AssemblyName>BlazorUpdater</AssemblyName>
+
+		<EnableTrimAnalyzer>True</EnableTrimAnalyzer>
+		<IsTrimmable>True</IsTrimmable>
+
+		<Title>Blazor Updater</Title>
+		<Product>Blazor Updater</Product>
+
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<PublishRepositoryUrl>True</PublishRepositoryUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/D4nyi/BlazorUpdater</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/D4nyi/BlazorUpdater</PackageProjectUrl>
+		<Copyright>Dániel Szöllősi</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.8" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

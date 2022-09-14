@@ -1,0 +1,69 @@
+﻿.updater {
+    --pwa-updater-bar-height: 32px;
+    --pwa-updater-bar-color: white;
+    --pwa-updater-bar-backcolor: darkorange;
+    --pwa-updater-bar-z-index: 10;
+}
+
+.updater {
+    background-color: var(--pwa-updater-bar-backcolor);
+    color: var(--pwa-updater-bar-color);
+    padding: 0 12px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: var(--pwa-updater-bar-z-index);
+    overflow: hidden;
+    height: var(--pwa-updater-bar-height);
+    line-height: var(--pwa-updater-bar-height);
+    transition: top linear 0.5s, bottom linear 0.5s;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+    .updater.top {
+        top: calc(-1 * var(--pwa-updater-bar-height) - 1px);
+    }
+
+    .updater.bottom {
+        bottom: calc(-1 * var(--pwa-updater-bar-height) - 1px);
+    }
+
+    .updater.top.visible {
+        top: 0;
+    }
+
+    .pwa-updater.bottom.visible {
+        bottom: 0;
+    }
+
+.updater-button {
+    background-color: transparent;
+    color: var(--pwa-updater-bar-color);
+    border: solid 2px #ffffff80;
+    border-radius: 4px;
+    height: calc(var(--pwa-updater-bar-height) - 4px);
+    line-height: calc(var(--pwa-updater-bar-height) - 6px);
+    padding: 0 8px;
+    transition: background-color linear 0.2s;
+    margin: 0 0 0 8px;
+}
+
+    .updater-button:hover {
+        background-color: #ffffff40;
+    }
+
+.updater-close {
+    position: absolute;
+    left: 6px;
+    width: 32px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff80;
+    transition: all linear 0.2s;
+}
+
+    .updater-close:hover {
+        color: #ffffff;
+    }

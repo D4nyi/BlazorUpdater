@@ -1,1 +1,1 @@
-# BlazorUpdater
+# BalzorUpdater
