@@ -15,6 +15,8 @@
 		<RootNamespace>BlazorUpdater</RootNamespace>
 		<AssemblyName>BlazorUpdater</AssemblyName>
 
+		<Version>1.1.0</Version>
+
 		<EnableTrimAnalyzer>True</EnableTrimAnalyzer>
 		<IsTrimmable>True</IsTrimmable>
 
@@ -33,7 +35,13 @@
 		<RepositoryUrl>https://github.com/D4nyi/BlazorUpdater</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/D4nyi/BlazorUpdater</PackageProjectUrl>
 		<Copyright>Dániel Szöllősi</Copyright>
+		<Authors>Dániel Szöllősi</Authors>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+		<None Update="Updater.razor.css" CssScope="b-updater" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\LICENSE.txt">
@@ -47,15 +55,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<SupportedPlatform Include="browser" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-
 </Project>

@@ -1,63 +1,65 @@
-﻿.updater {
-    --pwa-updater-bar-height: 32px;
-    --pwa-updater-bar-color: white;
-    --pwa-updater-bar-backcolor: darkorange;
-    --pwa-updater-bar-z-index: 10;
+.updater {
+    --updater-height: 2rem;
+    --updater-color: white;
+    --updater-background: rgb(6 22 61);
+    --updater-background-faded: rgb(6 22 61 / .8);
+    --updater-z-index: 10;
 }
 
 .updater {
-    background-color: var(--pwa-updater-bar-backcolor);
-    color: var(--pwa-updater-bar-color);
-    padding: 0 12px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: var(--pwa-updater-bar-z-index);
+    background-color: var(--updater-background);
+    color: var(--updater-color);
+    z-index: var(--updater-z-index);
     overflow: hidden;
-    height: var(--pwa-updater-bar-height);
-    line-height: var(--pwa-updater-bar-height);
-    transition: top linear 0.5s, bottom linear 0.5s;
-    display: flex;
+    min-height: fit-content;
+    transition: opacity 2s linear;
     justify-content: end;
     align-items: center;
+    display: none;
 }
 
     .updater.top {
-        top: calc(-1 * var(--pwa-updater-bar-height) - 1px);
+        top: 0;
+        animation: slide-down 1000ms forwards, fade-in 500ms forwards;
     }
 
     .updater.bottom {
-        bottom: calc(-1 * var(--pwa-updater-bar-height) - 1px);
-    }
-
-    .updater.top.visible {
-        top: 0;
-    }
-
-    .pwa-updater.bottom.visible {
         bottom: 0;
+        animation: slide-up 1000ms forwards, fade-in 500ms forwards;
     }
+
+    .updater.visible {
+        display: flex;
+    }
+
+        .updater.visible[closing] {
+            animation: fade-out 500ms forwards;
+        }
+
+.updater-text {
+    font-size: 1rem;
+}
 
 .updater-button {
+    font-size: 1rem;
+    color: var(--updater-color);
     background-color: transparent;
-    color: var(--pwa-updater-bar-color);
     border: solid 2px #ffffff80;
     border-radius: 4px;
-    height: calc(var(--pwa-updater-bar-height) - 4px);
-    line-height: calc(var(--pwa-updater-bar-height) - 6px);
+    height: calc(var(--updater-height) - 4px);
     padding: 0 8px;
     transition: background-color linear 0.2s;
-    margin: 0 0 0 8px;
+    margin: 8px 8px 8px 12px;
 }
 
     .updater-button:hover {
-        background-color: #ffffff40;
+        background-color: var(--updater-background-faded);
     }
 
 .updater-close {
     position: absolute;
-    left: 6px;
-    width: 32px;
+    left: .5rem;
+    width: 2rem;
     text-align: center;
     cursor: pointer;
     color: #ffffff80;
@@ -65,5 +67,45 @@
 }
 
     .updater-close:hover {
-        color: #ffffff;
+        color: var(--updater-color);
     }
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

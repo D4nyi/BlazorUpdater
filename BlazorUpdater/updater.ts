@@ -1,13 +1,25 @@
-﻿let updaterElement: HTMLDivElement | null = null;
+const serviceWorker = document.currentScript?.getAttribute("worker") || "service-worker.js";
+let updaterElement: HTMLDivElement | null = null;
 
 function invokeServiceWorkerUpdateFlow(registration: ServiceWorkerRegistration) {
     if (updaterElement == null) {
         updaterElement = document.getElementById('updater') as HTMLDivElement;
     }
 
-    updaterElement.childNodes[1]?.addEventListener('click', () => {
+    updaterElement.classList.add('visible');
+
+    updaterElement.querySelector('span').addEventListener('click', (ev: PointerEvent) => {
+        ev.target.parentElement.setAttribute('closing', '');
+
+        updaterElement.addEventListener("animationend", () => {
+            ev.target.parentElement.removeAttribute("closing");
+            updaterElement.classList.remove('visible');
+        }, { once: true });
+    });
+
+    updaterElement.lastChild.addEventListener('click', () => {
         if (registration.waiting) {
-            // let waiting Service Worker know it should became active
+            // let the waiting Service Worker know it should became active
             registration.waiting.postMessage('SKIP_WAITING');
         }
     });
@@ -18,7 +30,7 @@ if ('serviceWorker' in navigator) {
     // wait for the page to load
     window.addEventListener('load', async () => {
         // register the service worker from the file specified
-        const registration = await navigator.serviceWorker.register('/service-worker.js');
+        const registration = await navigator.serviceWorker.register(serviceWorker);
 
         // ensure the case when the updatefound event was missed is also handled
         // by re-invoking the prompt when there's a waiting Service Worker

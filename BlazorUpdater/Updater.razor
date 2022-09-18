@@ -1,7 +1,7 @@
 <div id="updater" class="updater @(Align == Align.Top ? "top" : "bottom")">
-    <span>@Text</span>
-    <button class="updater-button">@ButtonText</button>
     <span class="updater-close">🗙</span>
+    <span class="updater-text">@Text</span>
+    <button role="button" type="button" class="updater-button">@ButtonText</button>
 </div>
 
 @code {
@@ -18,7 +18,7 @@
     public string ButtonText { get; set; } = "Update";
 
     /// <summary>
-    /// Type of alignment, whether <see cref="Align.Top"/> or <see cref="Align.Buttom"/>.
+    /// Type of alignment: <see cref="Align.Top"/>, <see cref="Align.Buttom"/>
     /// </summary>
     [Parameter]
     public Align Align { get; set; } = Align.Top;
