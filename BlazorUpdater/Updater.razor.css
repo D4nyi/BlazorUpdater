@@ -13,8 +13,9 @@
     overflow: hidden;
     min-height: fit-content;
     transition: opacity 2s linear;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
+    padding: .5rem;
     display: none;
 }
 
@@ -38,18 +39,19 @@
 
 .updater-text {
     font-size: 1rem;
+    padding-right: .5rem;
 }
 
 .updater-button {
     font-size: 1rem;
     color: var(--updater-color);
     background-color: transparent;
-    border: solid 2px #ffffff80;
+    border: solid 3px #ffffff80;
     border-radius: 4px;
     height: calc(var(--updater-height) - 4px);
-    padding: 0 8px;
+    padding: 0 8px 24px 8px;
     transition: background-color linear 0.2s;
-    margin: 8px 8px 8px 12px;
+    margin: 5px 5px 5px 10px;
 }
 
     .updater-button:hover {
@@ -58,7 +60,7 @@
 
 .updater-close {
     position: absolute;
-    left: .5rem;
+    right: .5rem;
     width: 2rem;
     text-align: center;
     cursor: pointer;

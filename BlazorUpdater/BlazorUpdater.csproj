@@ -15,7 +15,7 @@
 		<RootNamespace>BlazorUpdater</RootNamespace>
 		<AssemblyName>BlazorUpdater</AssemblyName>
 
-		<Version>1.1.0</Version>
+		<Version>1.2.0</Version>
 
 		<EnableTrimAnalyzer>True</EnableTrimAnalyzer>
 		<IsTrimmable>True</IsTrimmable>

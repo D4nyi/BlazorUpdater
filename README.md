@@ -1,17 +1,19 @@
 # Blazor Updater [![NuGet Package](https://img.shields.io/nuget/v/BlazorUpdater)](https://www.nuget.org/packages/BlazorUpdater/)
 
-## Framwork support
-- NET 6 or later
+## Framework support
+- .NET 6 or later version
 
 ## Summary
-This page makes sure that the users are notified if we deployed a new version of pur site
+This page makes sure that the users are notified if we deployed a new version of our site
 
 ## How it works (brief)
-- PWAs will always fetch and update themselvs but they does not use the updated content and Service Worker (SW)
-- PWA's only use their new SW's when the the user navigates away or the page was closed, if the page refresh does not triggers the new SW to be activated
-- A small scripts listens for the SW state changes and as soon as a new SW is installed and it is in the wait state
-a small notification bar displayed - that can be customized - in which the user can skip waiting on the new SW and make it the installed current one.
-- *NOTE* it will make the page reload!
+- PWAs will always fetch and update themselves but they do not use the updated content and Service Worker (SW)
+- PWAs only use their new SW when the user navigates away or the page gets closed
+- Page refresh does not activate the new SW
+- A small script listens for the SW state change and as soon as a new SW is installed and it is in the wait state
+a small notification bar is displayed - that can be customized - in which the user can skip waiting on the new SW and make installed the current one
+- *NOTE* it will make the page reload
+- *NOTE* When your site delpoyed first with this package, the update mechanism and the component styling might not work, but the second time all the scripts and styles will be available and it will work as intended
 
 ## Usage
 
@@ -29,7 +31,7 @@ a small notification bar displayed - that can be customized - in which the user 
 ```
 
 ### Use the component in your app
-- A good place would be at the top of your `MainLayout.razor` component
+- The top of your `MainLayout.razor` component is a good place for it
 ```razor
 @inherits LayoutComponentBase
 

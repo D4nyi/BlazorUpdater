@@ -1,7 +1,7 @@
 <div id="updater" class="updater @(Align == Align.Top ? "top" : "bottom")">
-    <span class="updater-close">🗙</span>
     <span class="updater-text">@Text</span>
     <button role="button" type="button" class="updater-button">@ButtonText</button>
+    <span class="updater-close">🗙</span>
 </div>
 
 @code {
@@ -9,7 +9,7 @@
     /// Notfification message
     /// </summary>
     [Parameter]
-    public string Text { get; set; } = "The new version is ready.";
+    public string Text { get; set; } = "The new version is ready";
 
     /// <summary>
     /// Action button text
