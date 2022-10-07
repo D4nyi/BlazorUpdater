@@ -43,16 +43,11 @@ if ('serviceWorker' in navigator) {
             if (registration.installing) {
                 // wait until the new Service worker is actually installed (ready to take over)
                 registration.installing.addEventListener('statechange', () => {
-                    if (registration.waiting) {
+                    if (registration.waiting && navigator.serviceWorker.controller) {
                         // if there's an existing controller (previous Service Worker), show the prompt
-                        if (navigator.serviceWorker.controller) {
-                            invokeServiceWorkerUpdateFlow(registration);
-                        } else {
-                            // otherwise it's the first install, nothing to do
-                            console.log('Service Worker initialized for the first time');
-                        }
+                        invokeServiceWorkerUpdateFlow(registration);
                     }
-                })
+                });
             }
         });
 

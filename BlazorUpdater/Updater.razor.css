@@ -13,7 +13,7 @@
     overflow: hidden;
     min-height: fit-content;
     transition: opacity 2s linear;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     padding: .5rem;
     display: none;
