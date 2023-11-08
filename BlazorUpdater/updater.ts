@@ -9,10 +9,11 @@ function invokeServiceWorkerUpdateFlow(registration: ServiceWorkerRegistration) 
     updaterElement.classList.add('visible');
 
     updaterElement.querySelector('span').addEventListener('click', (ev: PointerEvent) => {
-        ev.target.parentElement.setAttribute('closing', '');
+        const parent = (ev.target as HTMLElement).parentElement;
+        parent.setAttribute('closing', '');
 
         updaterElement.addEventListener("animationend", () => {
-            ev.target.parentElement.removeAttribute("closing");
+            parent.removeAttribute("closing");
             updaterElement.classList.remove('visible');
         }, { once: true });
     });
@@ -67,13 +68,13 @@ if ('serviceWorker' in navigator) {
 //esbuild.config.json
 /*
 {
-  "target": ["esnext","edge105","chrome105","firefox102","safari15.5"],
+  "target": ["esnext","edge119","chrome119","firefox119","safari17.1"],
   "format": "iife",
   "loader": { ".ts": "ts" },
   "minify": true,
   "platform": "browser",
   "banner": {
-    "js": "// Detecting Service Worker Updates\n\"use strict\";"
+    "js": "\"use strict\";"
   },
   "charset": "utf8"
 }
