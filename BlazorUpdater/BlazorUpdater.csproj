@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -36,6 +36,8 @@
 		<PackageProjectUrl>https://github.com/D4nyi/BlazorUpdater</PackageProjectUrl>
 		<Copyright>Dániel Szöllősi</Copyright>
 		<Authors>Dániel Szöllősi</Authors>
+
+		<EnablePackageValidation>true</EnablePackageValidation>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -55,6 +57,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
+		<PackageReference Condition="'$(TargetFramework)'=='net6.0'" Include="Microsoft.AspNetCore.Components.Web" Version="6.0.24" />
+		<PackageReference Condition="'$(TargetFramework)'=='net7.0'" Include="Microsoft.AspNetCore.Components.Web" Version="7.0.13" />
+		<!--<PackageReference Condition="'$(TargetFramework)'=='net8.0'" Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />-->
 	</ItemGroup>
 </Project>
