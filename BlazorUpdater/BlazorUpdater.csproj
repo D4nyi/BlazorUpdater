@@ -15,7 +15,7 @@
 		<RootNamespace>BlazorUpdater</RootNamespace>
 		<AssemblyName>BlazorUpdater</AssemblyName>
 
-		<Version>1.3.0</Version>
+		<Version>1.4.0</Version>
 
 		<EnableTrimAnalyzer>True</EnableTrimAnalyzer>
 		<IsTrimmable>True</IsTrimmable>
@@ -37,7 +37,15 @@
 		<Copyright>Dániel Szöllősi</Copyright>
 		<Authors>Dániel Szöllősi</Authors>
 
-		<EnablePackageValidation>true</EnablePackageValidation>
+        <PackageReleaseNotes>
+            - Supported .NET versions: .NET8, .NET9 (.NET6 removed)
+            - Small improvements
+            - Typo fixes
+        </PackageReleaseNotes>
+        
+        <PackageTags>Blazor, update, Blazor updater</PackageTags>
+
+        <EnablePackageValidation>true</EnablePackageValidation>
 	</PropertyGroup>
 
 	<ItemGroup>
