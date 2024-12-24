@@ -1,83 +1,80 @@
 .updater {
     --updater-height: 2rem;
     --updater-color: white;
-    --updater-background: rgb(6 22 61);
-    --updater-background-faded: rgb(6 22 61 / .8);
+    --updater-background: #06163d;
+    --updater-background-faded: #06163dcc;
     --updater-z-index: 10;
-}
 
-.updater {
     background-color: var(--updater-background);
     color: var(--updater-color);
     z-index: var(--updater-z-index);
-    overflow: hidden;
-    min-height: fit-content;
-    transition: opacity 2s linear;
     justify-content: start;
     align-items: center;
+    min-height: fit-content;
     padding: .5rem;
+    transition: opacity 2s linear;
     display: none;
+    overflow: hidden;
 }
 
-    .updater.top {
-        top: 0;
-        animation: slide-down 1000ms forwards, fade-in 500ms forwards;
-    }
+.updater.top {
+    animation: 1s forwards slide-down, .5s forwards fade-in;
+    top: 0;
+}
 
-    .updater.bottom {
-        bottom: 0;
-        animation: slide-up 1000ms forwards, fade-in 500ms forwards;
-    }
+.updater.bottom {
+    animation: 1s forwards slide-up, .5s forwards fade-in;
+    bottom: 0;
+}
 
-    .updater.visible {
-        display: flex;
-    }
+.updater.visible {
+    display: flex;
+}
 
-        .updater.visible[closing] {
-            animation: fade-out 500ms forwards;
-        }
+.updater.visible[closing] {
+    animation: .5s forwards fade-out;
+}
 
 .updater-text {
-    font-size: 1rem;
     padding-right: .5rem;
+    font-size: 1rem;
 }
 
 .updater-button {
-    font-size: 1rem;
     color: var(--updater-color);
-    background-color: transparent;
-    border: solid 3px #ffffff80;
-    border-radius: 4px;
     height: calc(var(--updater-height) - 4px);
-    padding: 0 8px 24px 8px;
-    transition: background-color linear 0.2s;
+    background-color: #0000;
+    border: 3px solid #ffffff80;
+    border-radius: 4px;
     margin: 5px 5px 5px 10px;
+    padding: 0 8px 24px;
+    font-size: 1rem;
+    transition: background-color .2s linear;
 }
 
-    .updater-button:hover {
-        background-color: var(--updater-background-faded);
-    }
+.updater-button:hover {
+    background-color: var(--updater-background-faded);
+}
 
 .updater-close {
-    position: absolute;
-    right: .5rem;
-    width: 2rem;
     text-align: center;
     cursor: pointer;
     color: #ffffff80;
-    transition: all linear 0.2s;
+    width: 2rem;
+    transition: all .2s linear;
+    position: absolute;
+    right: .5rem;
 }
 
-    .updater-close:hover {
-        color: var(--updater-color);
-    }
+.updater-close:hover {
+    color: var(--updater-color);
+}
 
 @keyframes fade-in {
     0% {
         opacity: 0;
     }
-
-    100% {
+    to {
         opacity: 1;
     }
 }
@@ -86,8 +83,7 @@
     0% {
         opacity: 1;
     }
-
-    100% {
+    to {
         opacity: 0;
     }
 }
@@ -96,8 +92,7 @@
     0% {
         transform: translateY(100%);
     }
-
-    100% {
+    to {
         transform: translateY(0%);
     }
 }
@@ -106,8 +101,7 @@
     0% {
         transform: translateY(-100%);
     }
-
-    100% {
+    to {
         transform: translateY(0%);
     }
 }

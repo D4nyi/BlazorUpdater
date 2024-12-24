@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="BlazorUpdater\BlazorUpdater.csproj" />
+  <Properties Name="Visual Studio">
+    <Property Name="OpenWith" Value="17" />
+  </Properties>
+</Solution>

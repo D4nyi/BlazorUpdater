@@ -1,4 +1,4 @@
-<div id="updater" class="updater @(Align == Align.Top ? "top" : "bottom")">
+<div id="updater" class="updater @GetAlignment(Align)">
     <span class="updater-text">@Text</span>
     <button role="button" type="button" class="updater-button">@ButtonText</button>
     <span class="updater-close">🗙</span>
@@ -6,10 +6,10 @@
 
 @code {
     /// <summary>
-    /// Notfification message
+    /// Notification message
     /// </summary>
     [Parameter]
-    public string Text { get; set; } = "The new version is ready";
+    public string Text { get; set; } = "The new version is ready!";
 
     /// <summary>
     /// Action button text
@@ -18,8 +18,14 @@
     public string ButtonText { get; set; } = "Update";
 
     /// <summary>
-    /// Type of alignment: <see cref="Align.Top"/>, <see cref="Align.Buttom"/>
+    /// Type of alignment: <see cref="Align.Top"/>, <see cref="Align.Bottom"/>
     /// </summary>
     [Parameter]
     public Align Align { get; set; } = Align.Top;
+
+    private static string GetAlignment(Align align) => align switch
+    {
+        Align.Bottom => "bottom",
+        _ => "top"
+    };
 }

@@ -7,18 +7,18 @@
 This page makes sure that the users are notified if we deployed a new version of our site
 
 ## How it works (brief)
-- PWAs will always fetch and update themselves but they do not use the updated content and Service Worker (SW)
+- PWAs will always fetch and update themselves, but they do not use the updated content and Service Worker (SW)
 - PWAs only use their new SW when the user navigates away or the page gets closed
 - Page refresh does not activate the new SW
-- A small script listens for the SW state change and as soon as a new SW is installed and it is in the wait state
+- A small script listens for the SW state change and as soon as a new SW is installed, and it is in the wait state
 a small notification bar is displayed - that can be customized - in which the user can skip waiting on the new SW and make installed the current one
 - *NOTE* it will make the page reload
-- *NOTE* When your site delpoyed first with this package, the update mechanism and the component styling might not work, but the second time all the scripts and styles will be available and it will work as intended
+- *NOTE* When your site deployed first with this package, the update mechanism and the component styling might not work, but the second time all the scripts and styles will be available and it will work as intended
 
 ## Usage
 
-### Relpace the Service Worker registration
-- Relpace the line below in the wwwroot\index.html
+### Replace the Service Worker registration
+- Replace the line below in the wwwroot\index.html
 ```html
 <!-- Remove this line -->
 <script>navigator.serviceWorker.register('service-worker.js');</script>
@@ -39,7 +39,7 @@ a small notification bar is displayed - that can be customized - in which the us
 ```
 
 ### Modify your service worker
-- Add an eventlistener to it
+- Add an event listener to it
 ```js
 // in service-worker.published.js
 self.addEventListener('message', event => {

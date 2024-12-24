@@ -15,12 +15,12 @@ function invokeServiceWorkerUpdateFlow(registration: ServiceWorkerRegistration) 
         updaterElement.addEventListener("animationend", () => {
             parent.removeAttribute("closing");
             updaterElement.classList.remove('visible');
-        }, { once: true });
+        }, {once: true});
     });
 
     updaterElement.lastChild.addEventListener('click', () => {
         if (registration.waiting) {
-            // let the waiting Service Worker know it should became active
+            // let the waiting Service Worker know it should become active
             registration.waiting.postMessage('SKIP_WAITING');
         }
     });
@@ -65,7 +65,7 @@ if ('serviceWorker' in navigator) {
 }
 
 // https://esbuild.egoist.dev/
-//esbuild.config.json
+// esbuild.config.json
 /*
 {
   "target": ["esnext","edge119","chrome119","firefox119","safari17.1"],
