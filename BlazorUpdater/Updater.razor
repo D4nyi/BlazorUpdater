@@ -1,7 +1,7 @@
-<div id="updater" class="updater @GetAlignment(Align)">
+<div id="updater" role="alert" class="updater @GetAlignment(Align)">
     <span class="updater-text">@Text</span>
-    <button role="button" type="button" class="updater-button">@ButtonText</button>
-    <span class="updater-close">🗙</span>
+    <button role="button" type="button" aria-label="@ButtonText" class="updater-button">@ButtonText</button>
+    <span class="updater-close" role="button" aria-label="Close">🗙</span>
 </div>
 
 @code {

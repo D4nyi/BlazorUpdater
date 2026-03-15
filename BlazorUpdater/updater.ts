@@ -39,7 +39,7 @@ if ('serviceWorker' in navigator) {
             invokeServiceWorkerUpdateFlow(registration);
         }
 
-        // detect Service Worker update available and wait for it to become installed
+        // detect the Service Worker update available and wait for it to become installed
         registration.addEventListener('updatefound', () => {
             if (registration.installing) {
                 // wait until the new Service worker is actually installed (ready to take over)

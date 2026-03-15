@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -15,12 +15,17 @@
 		<RootNamespace>BlazorUpdater</RootNamespace>
 		<AssemblyName>BlazorUpdater</AssemblyName>
 
-		<Version>1.4.0</Version>
+		<Version>1.5.0</Version>
 
-		<EnableTrimAnalyzer>True</EnableTrimAnalyzer>
-		<IsTrimmable>True</IsTrimmable>
+        <IsAotCompatible>true</IsAotCompatible>
 
-		<Title>Blazor Updater</Title>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>True</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+        <Title>Blazor Updater</Title>
 		<Product>Blazor Updater</Product>
 
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -34,19 +39,22 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/D4nyi/BlazorUpdater</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/D4nyi/BlazorUpdater</PackageProjectUrl>
-		<Copyright>Dániel Szöllősi</Copyright>
+		<Copyright>Copyright © 2026. Dániel Szöllősi</Copyright>
 		<Authors>Dániel Szöllősi</Authors>
 
         <PackageReleaseNotes>
-            - Supported .NET versions: .NET8, .NET9 (.NET6 removed)
+            - Supported .NET versions: .NET8, .NET9, .NET10
             - Small improvements
-            - Typo fixes
         </PackageReleaseNotes>
         
         <PackageTags>Blazor, update, Blazor updater</PackageTags>
 
         <EnablePackageValidation>true</EnablePackageValidation>
 	</PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
@@ -67,5 +75,6 @@
 	<ItemGroup>
 		<PackageReference Condition="'$(TargetFramework)'=='net8.0'" Include="Microsoft.AspNetCore.Components.Web" Version="8.0.*" />
 		<PackageReference Condition="'$(TargetFramework)'=='net9.0'" Include="Microsoft.AspNetCore.Components.Web" Version="9.0.*" />
+		<PackageReference Condition="'$(TargetFramework)'=='net10.0'" Include="Microsoft.AspNetCore.Components.Web" Version="10.0.*" />
 	</ItemGroup>
 </Project>

@@ -15,6 +15,8 @@
     transition: opacity 2s linear;
     display: none;
     overflow: hidden;
+    position: fixed;
+    width: 100vw;
 }
 
 .updater.top {

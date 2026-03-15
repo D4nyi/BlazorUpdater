@@ -1,7 +1,7 @@
 # Blazor Updater [![NuGet Package](https://img.shields.io/nuget/v/BlazorUpdater)](https://www.nuget.org/packages/BlazorUpdater/)
 
 ## Framework support
-- .NET 6 or later version
+- .NET 8 or later version
 
 ## Summary
 This page makes sure that the users are notified if we deployed a new version of our site
